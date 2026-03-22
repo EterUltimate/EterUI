@@ -36,10 +36,10 @@ pkg update
 pkg install git curl wget
 
 # 克隆仓库
-git clone https://github.com/EterUltimate/Endm.git ~/.Endm
+git clone https://github.com/EterUltimate/Endm.git ~/Endm
 
 # 运行安装
-bash ~/.Endm/endm.sh -s
+bash ~/Endm/endm.sh -s
 ```
 
 ### 快速安装 (Linux)
