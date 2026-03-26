@@ -36,10 +36,10 @@ pkg update
 pkg install git curl wget
 
 # 克隆仓库
-git clone https://github.com/EterUltimate/Endm.git ~/Endm
+git clone https://github.com/EterUltimate/Endm.git
 
 # 运行安装
-bash ~/Endm/endm.sh -s
+bash ~/Endm/endm.sh
 ```
 
 ### 快速安装 (Linux)
@@ -50,10 +50,10 @@ apt-get update
 apt-get install -y git curl wget
 
 # 克隆仓库
-git clone https://github.com/EterUltimate/Endm.git /opt/Endm
+git clone https://github.com/EterUltimate/Endm.git
 
 # 运行安装
-sudo bash /opt/Endm/endm.sh -s
+sudo bash ~/Endm/endm.sh
 ```
 
 ## 使用方法
