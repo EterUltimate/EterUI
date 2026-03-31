@@ -1,4 +1,4 @@
-# Endm
+# EterUI
 
 [English](README_en.md) | [Chinese](README.md)
 
@@ -13,8 +13,8 @@ A proot management tool for Android Termux users.
 
 ## Installation
 ```bash
-git clone https://github.com/EterUltimate/Endm.git ~/.Endm
-bash ~/.Endm/endm.sh -s
+git clone https://github.com/EterUltimate/EterUl.git
+bash ~/EterUl/eterui.sh
 ```
 
 ## License
