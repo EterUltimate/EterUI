@@ -11,10 +11,10 @@ LOCAL_SCRIPT_PATH=$(cd "$(dirname "$LOCAL_SCRIPT_PATH")" && pwd)/$(basename "$LO
 # 自动识别用户安装路径（关键修改）
 if [ "$(id -u)" -eq 0 ]; then
     # root用户使用系统路径
-    SYSTEM_INSTALL_PATH="/usr/games/endmtool"
+    SYSTEM_INSTALL_PATH="/usr/games/eteruitool"
 else
     # 普通用户使用主目录路径
-    SYSTEM_INSTALL_PATH="$HOME/.local/bin/endmtool"
+    SYSTEM_INSTALL_PATH="$HOME/.local/bin/eteruitool"
 fi
 
 # 确保用户安装目录存在
@@ -41,7 +41,7 @@ get_system_info() {
 }
 
 show_launch_animation() {
-  show_endmtool_art
+  show_eteruitool_art
   
   # 系统信息（零间隔显示）
   system_info=$(get_system_info)
@@ -103,17 +103,17 @@ show_launch_animation() {
         sleep 0.2
     done
 
-    echo -e "        ${WHITE}即将进入 EndmTool...${RESET}"
+    echo -e "        ${WHITE}即将进入 EterUlTool...${RESET}"
     sleep 1.2
     clear
 }
 
-show_endmtool_art() {
-     figlet "EndmTool" | lolcat
+show_eteruitool_art() {
+     figlet "EterUlTool" | lolcat
      sleep 1
 
      echo -e "${CYAN}■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■${RESET}"
-     echo -e "${RED}▶${YELLOW}▶${GREEN}▶${CYAN}      EndmTool V27.0.0      ${GREEN}◀${YELLOW}◀${RED}◀${RESET}"
+     echo -e "${RED}▶${YELLOW}▶${GREEN}▶${CYAN}      EterUlTool V28.0.0      ${GREEN}◀${YELLOW}◀${RED}◀${RESET}"
      echo -e "${CYAN}■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■${RESET}\n"
 }
 
@@ -229,21 +229,21 @@ install_to_system_path() {
     if is_kali; then
         if [ "$(id -u)" -eq 0 ]; then
             # Kali纯root用户：安装到/usr/local/bin
-            SYSTEM_INSTALL_PATH="/usr/local/bin/endmtool"
+            SYSTEM_INSTALL_PATH="/usr/local/bin/eteruitool"
             PATH_DIR="/usr/local/bin"
         else
             # Kali普通用户：安装到用户级路径$HOME/.local/bin
-            SYSTEM_INSTALL_PATH="$HOME/.local/bin/endmtool"
+            SYSTEM_INSTALL_PATH="$HOME/.local/bin/eteruitool"
             PATH_DIR="$HOME/.local/bin"
         fi
     else
         if [ "$(id -u)" -eq 0 ]; then
             # 非Kali纯root用户：安装到/usr/games
-            SYSTEM_INSTALL_PATH="/usr/games/endmtool"
+            SYSTEM_INSTALL_PATH="/usr/games/eteruitool"
             PATH_DIR="/usr/games"
         else
             # 非Kali普通用户：安装到用户级路径$HOME/.local/bin
-            SYSTEM_INSTALL_PATH="$HOME/.local/bin/endmtool"
+            SYSTEM_INSTALL_PATH="$HOME/.local/bin/eteruitool"
             PATH_DIR="$HOME/.local/bin"
         fi
     fi
@@ -279,7 +279,7 @@ install_to_system_path() {
             fi
             
             echo -e "${GREEN}✅ 脚本已成功安装${RESET}"
-            echo -e "${GREEN}下次可直接使用 'endmtool' 命令启动${RESET}"
+            echo -e "${GREEN}下次可直接使用 'eteruitool' 命令启动${RESET}"
             sleep 2
         else
             echo -e "${RED}❌ 安装失败，可能原因：${RESET}"
@@ -1434,13 +1434,13 @@ run_xfce_terminal_beautify() {
     delay 2  
 }  
 
-EndmTool_menu() {
+EterUlTool_menu() {
     while true; do
         choice=$(whiptail --clear \
             --backtitle "" \
-            --title "EndmTool V27.0.0" \
+            --title "EterUlTool V28.0.0" \
             --menu "✨ 请选择类别： \n
-27了，到达终点站了，江湖再见....\n
+EterUI 28，新的起点！\n
 🔧 提示：使用 ↓↑ 键导航，按 Enter 确认" \
             0 60 0 \
             "1" "💼 软件中心 —— 应用宝库" \
@@ -2059,7 +2059,7 @@ EOF
                 ;;
 
             "3") 
-                uninstall_endm
+                uninstall_eterui
                 ;;
 
             "0") 
@@ -2070,12 +2070,12 @@ EOF
     done
 }
 
-uninstall_endm() {
+uninstall_eterui() {
     while true; do
         whiptail --title "卸载确认" --yesno "你确定要卸载此脚本吗？" 10 60
         if [ $? -eq 0 ]; then
             clear
-            echo -e "\033[1;31m开始执行 Endm 脚本卸载流程...\033[0m"
+            echo -e "\033[1;31m开始执行 EterUl 脚本卸载流程...\033[0m"
             sleep 1
             
             cd ~ || {
@@ -2087,9 +2087,9 @@ uninstall_endm() {
             echo -e "\033[1;34m已切换到主目录：$(pwd)\033[0m"
             sleep 0.5
             
-            local SYSTEM_PATH="/usr/games/endmtool"  
-            local USER_PATH="$HOME/.local/bin/endmtool"  
-            local KALI_PATH="/usr/local/bin/endmtool"  
+            local SYSTEM_PATH="/usr/games/eteruitool"  
+            local USER_PATH="$HOME/.local/bin/eteruitool"  
+            local KALI_PATH="/usr/local/bin/eteruitool"  
 
             if [ -f "$SYSTEM_PATH" ]; then
                 sudo rm -f "$SYSTEM_PATH"
@@ -2118,17 +2118,17 @@ uninstall_endm() {
                 return 1
             }
             
-            if [ -d "Endm" ]; then
-                sudo rm -rf "Endm"
-                echo -e "\033[1;32m→ 已删除 Endm 文件夹\033[0m"
+            if [ -d "EterUl" ]; then
+                sudo rm -rf "EterUl"
+                echo -e "\033[1;32m→ 已删除 EterUl 文件夹\033[0m"
             else
-                echo -e "\033[1;33m→ Endm 文件夹不存在，跳过删除\033[0m"
+                echo -e "\033[1;33m→ EterUl 文件夹不存在，跳过删除\033[0m"
             fi
             sleep 0.5
             
             echo -e "\n\033[1;35m=================================================\033[0m"
-            echo -e "\033[1;32m✅ Endm 脚本已成功卸载完毕！（如在文件夹内,输入cd即可退出该文件夹，然后使用ls检查）\033[0m"
-            echo -e "\033[1;34m感谢您曾与 Endm 相伴，期待未来再次相遇～\033[0m"
+            echo -e "\033[1;32m✅ EterUl 脚本已成功卸载完毕！（如在文件夹内,输入cd即可退出该文件夹，然后使用ls检查）\033[0m"
+            echo -e "\033[1;34m感谢您曾与 EterUl 相伴，期待未来再次相遇～\033[0m"
             echo -e "\033[1;35m=================================================\033[0m"
             echo -e "\n\033[1;33m按回车键退出...\033[0m"
             read -r
@@ -3016,7 +3016,7 @@ system_warning() {
      whiptail --title "系统提示" --msgbox "检测到未支持的系统: $system\n\n脚本将继续执行，但可能存在兼容性问题。" 12 60
 }
 
-EndmTool() {
+EterUlTool() {
      detect_system
      install_deps
      show_launch_animation
@@ -3029,5 +3029,5 @@ EndmTool() {
              exit 1
          fi
      fi
-     EndmTool_menu
+     EterUlTool_menu
 }

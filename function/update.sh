@@ -1,4 +1,4 @@
-source ${HOME}/Endm/config/config.sh
+source ${HOME}/EterUl/config/config.sh
 RED='\e[1;31m'
 GREEN='\e[1;32m'
 YELLOW='\e[1;33m'
@@ -14,7 +14,7 @@ INFO="[${BLUE}信息${RES}]:"
 declare -A arch_map=(["aarch64"]="arm64" ["armv7l"]="armhf" ["x86_64"]="amd64")
 archurl="${arch_map[$(uname -m)]}"
 log() {
-	local fileName="${HOME}/Endm/log.log"
+	local fileName="${HOME}/EterUl/log.log"
 	local fileMaxLen=100
 	local fileDeleteLen=10
 	if test $fileName; then
@@ -27,11 +27,11 @@ log() {
 		echo "[$(date +%y/%m/%d-%H:%M:%S)]:$*" >$fileName
 	fi
 }
-A_DIR="${HOME}/Endm"
+A_DIR="${HOME}/EterUl"
 B_DIR="${HOME}/.back"
 TEMP_DIR="${HOME}/.TEMP"
 REMOTE_URL="${rawgit}config/version"
-LOCAL_VERSION_FILE="${HOME}/Endm/config/version"
+LOCAL_VERSION_FILE="${HOME}/EterUl/config/version"
 log 清理临时目录
 rm -rf $TEMP_DIR
 if [ -f "$LOCAL_VERSION_FILE" ]; then
@@ -111,7 +111,7 @@ if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" 
 	log "BACKUP_FILE=".back/backup_$(date +%Y%m%d_%H%M%S)_${LOCAL_VERSION}_to_${REMOTE_VERSION}.tar.gz""
 	BACKUP_FILE=".back/backup_$(date +%Y%m%d_%H%M%S)_${LOCAL_VERSION}_to_${REMOTE_VERSION}.tar.gz"
 	log "正在创建备份的压缩文件: $BACKUP_FILE"
-	if ! tar -czf "$BACKUP_FILE" -C "$HOME" Endm; then
+	if ! tar -czf "$BACKUP_FILE" -C "$HOME" EterUl; then
 		echo -e "${ERROR}备份失败！"
 	fi
 	log 更新A分区
@@ -121,9 +121,9 @@ if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" 
 	log 清理临时目录
 	rm -rf $TEMP_DIR
 	if [ "${qqBot}" != "" ]; then
-		Modify_the_variable qqBot ${qqBot} ${HOME}/Endm/config/config.sh
+		Modify_the_variable qqBot ${qqBot} ${HOME}/EterUl/config/config.sh
 	fi
-	chmod 777 ${HOME}/Endm/endm.sh
+	chmod 777 ${HOME}/EterUl/eterui.sh
 	
 	clear
 	echo -e "${GREEN}=========================================${RES}"
@@ -139,7 +139,7 @@ if [ "$(printf '%s\n' "$REMOTE_VERSION" "$LOCAL_VERSION" | sort -V | tail -n1)" 
 	clear
 	log 5秒原地倒计时结束，脚本即将重启
 	exit
-	exec ${HOME}/Endm/endm.sh
+	exec ${HOME}/EterUl/eterui.sh
 else
 	echo -e "${GREEN}✅ 当前已是最新版本（$LOCAL_VERSION），无需更新！${RES}"
 	sleep 1

@@ -1,4 +1,4 @@
-for script in $HOME/Endm/local/Linux/function/*; do
+for script in $HOME/EterUl/local/Linux/function/*; do
 	source "$script"
 	log "加载:$script"
 done
@@ -39,20 +39,20 @@ startNapCatQQ | startnQQ)
 startNapCatQQB | startnQQB)
 	startNapCatQQ -B
 	;;
-EndmTool | endmtool)
-	EndmTool
+EterUlTool | eteruitool)
+	EterUlTool
 	;;		
 *)
 	if [ "${system_os_type}" = "" ]; then
 		echo -e "${INFO}完整linux环境或非本脚本安装的proot"
 	fi
 	Linux_menu=$(
-		whiptail --title "Endm For Linux V27.0.0" --menu "27，终点站；请选择功能" 15 60 4 \
+		whiptail --title "EterUl For Linux V28.0.0" --menu "新的起点，请选择功能" 15 60 4 \
 			"1" "💎 管理mc Server（旧）" \
 		    "2" "⭐️ MC服务器管理（新）" \
 			"3" "🤖 QQ机器人" \
 			"4" "🚀 网速测试" \
-			"5" "💼 Endm Tool" \
+			"5" "💼 EterUl Tool" \
 			"0" "🌚 退出" \
 			"D" "⚠️ debuger" 3>&1 1>&2 2>&3
 	)
@@ -241,26 +241,26 @@ EndmTool | endmtool)
 		esac
 		;;
 	5)
-		EndmTool_menu=$(
-			whiptail --title "即将切换" --menu "即将启动Endm工具" 15 60 8 \
+		EterUlTool_menu=$(
+			whiptail --title "即将切换" --menu "即将启动EterUl工具" 15 60 8 \
 				"1" "下一步" \
 				"0" "退出" 3>&1 1>&2 2>&3
 		)
-		case $EndmTool_menu in
+		case $EterUlTool_menu in
 		1)
 			log "下一步"
-			EndmToolagin_menu=$(
+			EterUlToolagin_menu=$(
 				whiptail --title "再来一次" --menu "即将进入" 15 60 8 \
 					"1" "理解确认" \
 					"0" "退出" 3>&1 1>&2 2>&3
 			)
-			case $EndmToolagin_menu in
+			case $EterUlToolagin_menu in
 			1)
 				log "理解确认"
 				echo -e "${INFO}正在尝试切换，请稍等"
 				sleep 3
 				clear
-				EndmTool
+				EterUlTool
 				;;
 			*)
 				exit 1

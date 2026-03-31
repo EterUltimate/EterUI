@@ -1,12 +1,12 @@
 #!/data/data/com.termux/files/usr/bin/bash
-# if source $HOME/Endm/local/Android/Android_function; then
+# if source $HOME/EterUl/local/Android/Android_function; then
 # 	echo -e "${SUSSEC}加载安卓功能成功"
 # 	log "加载安卓功能成功"
 # else
 # 	echo -e "${WORRY}加载安卓功能失败"
 # 	log "加载安卓功能失败"
 # fi
-for script in $HOME/Endm/local/Android/function/* ; do
+for script in $HOME/EterUl/local/Android/function/* ; do
 	source "$script" 
 	log "加载:$script"
 done
@@ -37,7 +37,7 @@ start)
 	;;
 *)
 	Android_menu=$(
-		whiptail --title "Endm For Termux V27.0.0" --menu "27，终点站；请选择功能" 15 60 8 \
+		whiptail --title "EterUl For Termux V28.0.0" --menu "新的起点，请选择功能" 15 60 8 \
 			"1" "🍀 管理proot容器" \
 			"2" "♻️ 垃圾清理" \
 			"3" "🐸 Android软件商店（Beta）" \
@@ -90,7 +90,7 @@ start)
 		;;	
 	4)
 		log "卸载脚本"
-		uninstall_endm
+		uninstall_eterui
 		;;			
 	5)
 		log "网速测试"

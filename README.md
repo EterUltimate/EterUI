@@ -1,4 +1,4 @@
-# Endm
+# EterUl
 
 [English](README_en.md) | 中文
 
@@ -36,10 +36,10 @@ pkg update
 pkg install git curl wget
 
 # 克隆仓库
-git clone https://github.com/EterUltimate/Endm.git
+git clone https://github.com/EterUltimate/EterUl.git
 
 # 运行安装
-bash ~/Endm/endm.sh
+bash ~/EterUl/eterui.sh
 ```
 
 ### 快速安装 (Linux)
@@ -50,10 +50,10 @@ apt-get update
 apt-get install -y git curl wget
 
 # 克隆仓库
-git clone https://github.com/EterUltimate/Endm.git
+git clone https://github.com/EterUltimate/EterUl.git
 
 # 运行安装
-sudo bash ~/Endm/endm.sh
+sudo bash ~/EterUl/eterui.sh
 ```
 
 ## 使用方法
@@ -64,21 +64,21 @@ sudo bash ~/Endm/endm.sh
 |------|------|
 | -h, --help | 显示帮助信息 |
 | -s, --start | 开始安装/配置 |
-| -u, --update | 更新 Endm |
+| -u, --update | 更新 EterUl |
 | --debug | 调试模式 |
 
 ### 交互式菜单
 
 ```bash
 # 启动交互式菜单
-bash endm.sh
+bash eterui.sh
 ```
 
 ## 项目结构
 
 ```
-Endm/
-├── endm.sh              # 主程序入口
+EterUl/
+├── eterui.sh              # 主程序入口
 ├── config/              # 配置文件目录
 │   ├── config.sh        # 用户配置
 │   └── version          # 版本信息
@@ -94,7 +94,7 @@ Endm/
 
 ## 配置
 
-配置文件位于 ~/.Endm/config/config.sh（Termux）或 /opt/Endm/config/config.sh（Linux）。
+配置文件位于 ~/EterUl/config/config.sh（Termux）或 /opt/EterUl/config/config.sh（Linux）。
 
 ### 可配置项
 
@@ -115,7 +115,7 @@ A: 运行内置优化脚本：bash function/proot_optimization
 
 ### Q: 如何更新到最新版本？
 
-A: 运行 bash endm.sh -u
+A: 运行 bash eterui.sh -u
 
 ## 贡献指南
 
@@ -135,4 +135,4 @@ A: 运行 bash endm.sh -u
 
 Star 本项目以示支持！
 
-2024-2026 Endm Project
+2024-2026 EterUl Project
